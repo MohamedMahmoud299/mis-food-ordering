@@ -1,0 +1,23 @@
+{
+  "name": "mis-food-ordering",
+  "version": "1.0.0",
+  "description": "food ordering app for the peeps of mis egypt",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ed",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-ui-bootstrap": "^0.14.3",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-jwt": "^3.3.0",
+    "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.2.8",
+    "q": "^1.4.1",
+    "socket.io": "^1.3.7"
+  }
+}

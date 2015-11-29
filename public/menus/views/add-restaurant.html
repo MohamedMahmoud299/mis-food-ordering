@@ -1,0 +1,26 @@
+<!-- Modal -->
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" ng-click="close()"class="close">&times;</button>
+        <h4 class="modal-title">Add Restaurant</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+        	<label class="control-label">Name</label>
+        	<input ng-model="restaurant.name"class = "form-control"type="text" >
+        	<label class="control-label">Phone</label>
+        	<input ng-model = "restaurant.phone"class = "form-control"type="text">
+        	<label class="control-label">Description</label>
+
+        	<input ng-model = "restaurant.description"class = "form-control"type="text">	
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" ng-click="close()" class="btn btn-default">Close</button>
+        <button type="button" ng-click="add()" class="btn btn">Add</button>
+      </div>
+    </div>
+
+  </div>

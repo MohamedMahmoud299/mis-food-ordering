@@ -1,0 +1,16 @@
+<div class="col-sm-6 col-sm-offset-3">
+		<form class="form-group" ng-submit="logIn()">
+			<label class="control-label">User name</label>
+			<input ng-model = "creds.userName" class="form-control"type="text">
+			<br>
+			<label class="control-label">Password</label>
+			<input ng-model = "creds.password" class="form-control"type="password">
+			<br>
+			<button class="pull-left btn "type="submit"><i class="fa fa-sign-in"></i> Login</button>
+		</form>
+		<br>
+		<br>
+		<p>
+			Don't have an account? register <a href ng-click="goToRegister()">here</a>.
+		</p>
+	</div>
