@@ -4,6 +4,7 @@ var service = {};
 var Q = require('q');
 var bcrypt = require('bcrypt-nodejs');
 var jwt = require('jsonwebtoken');
+var creds = require('../creds/creds');
 
 
 function encryption(password) {
@@ -45,7 +46,7 @@ service.logIn = function(req) {
         if (user) {
             validatePassword(req.body.password, user.password).then(function(res) {
                 if (res.isValid === true) {
-                  var token = jwt.sign(user, 'hahahaha', {expiresIn:60*200});
+                  var token = jwt.sign(user, creds.jwtSecret, {expiresIn:60*200});
                     def.resolve({
                         result: true,
                         message: 'Authenticated.',
