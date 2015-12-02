@@ -1,0 +1,25 @@
+{
+  "name": "MIS-Food-Ordering",
+  "version": "0.0.0",
+  "homepage": "https://github.com/MohamedMahmoud299/mis-food-ordering",
+  "authors": [
+    "Mohamed <mohamed@makeitsimple.info>"
+  ],
+  "description": "lets get our food",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-socket-io": "~0.7.0",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.14.3",
+    "angular-notify": "~2.5.0"
+  }
+}
