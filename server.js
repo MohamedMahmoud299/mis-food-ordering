@@ -3,10 +3,11 @@
   var mongoose = require('mongoose');
   // var creds = require('./server/creds/creds');
   var bodyParser = require('body-parser');
-  var config = require('./config');
+  var app = require('./config');
   var path = require('path');
-  var io = config.io;
-  var app = config.app;
+  var io = require('./socketService');
+  // var io = config.io;
+  // var app = config.app;
   // var jwt = require('jsonwebtoken');
   // var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
 
@@ -28,32 +29,25 @@
   // parse application/json
   app.use(bodyParser.json());
 
-  io.on('connection', function (socket) {
-    console.log('connected is..', socket.id)
-    io.connectedSock = socket.id;
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});
+  
 
-  io.on('connection', function  (socket) {
-    // body...
-    socket.on('add new restaurant', function (msg) {
-      // body...
-      console.log(msg);
-      socket.emit('aknowledge newly added restaurant', 'done');
-      socket.broadcast.emit('new restaurant', 'new restaurant has been added');
-      io.emit('hi new restaurant', 'hi all');
-    });
-  });
-  app.use(function(req,res,next){
-      req.io = io;
+  // io.on('connection', function  (socket) {
+  //   // body...
+  //   socket.on('add new restaurant', function (msg) {
+  //     // body...
+  //     console.log(msg);
+  //     socket.emit('aknowledge newly added restaurant', 'done');
+  //     socket.broadcast.emit('new restaurant', 'new restaurant has been added');
+  //     io.emit('hi new restaurant', 'hi all');
+  //   });
+  // });
+  // app.use(function(req,res,next){
+  //     req.io = io;
 
-      next();
-  });
-  require('./server/routes/userroutes')(app, io); //requiring all routes go here// need to use a loop on all routes file // @TODO: loop will be in next version isA.
-  require('./server/routes/restaurantroutes')(app, io); //requiring all routes go here// need to use a loop on all routes file // @TODO: loop will be in next version isA.
+  //     next();
+  // });
+  require('./server/routes/userroutes')(app); //requiring all routes go here// need to use a loop on all routes file // @TODO: loop will be in next version isA.
+  require('./server/routes/restaurantroutes')(app); //requiring all routes go here// need to use a loop on all routes file // @TODO: loop will be in next version isA.
   app.use(express.static(path.join(__dirname + '/public')));
   app.use('/bower_components',  express.static( path.join(__dirname, '/bower_components')));
   app.all('/*', function(req, res) {

@@ -1,6 +1,9 @@
 'use strict';
 angular.module('FoodApp').controller('loginCtrl', function($scope, $state, $http, notify, $window, Login) {
     $scope.creds = {};
+    if($window.localStorage.isLoggedIn === 'true' && $window.localStorage.token){
+        $state.go('menu');
+    }
     $scope.logIn = function() {
         console.log($scope.creds);
         if (!$scope.creds.userName || !$scope.creds.password) {

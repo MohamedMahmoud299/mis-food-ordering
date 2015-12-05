@@ -1,6 +1,5 @@
 'use strict';
 angular.module('FoodApp').config(function ($stateProvider, $urlRouterProvider) {
-  console.log('this is working')
   $stateProvider
   .state('app', {
     url: '/',

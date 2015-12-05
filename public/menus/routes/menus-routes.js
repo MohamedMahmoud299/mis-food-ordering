@@ -1,6 +1,5 @@
 'use strict';
 angular.module('FoodApp').config(['$stateProvider', '$urlRouterProvider',function($stateProvider) {
-	console.log('menu router')
 	$stateProvider
 	.state('menu',{
 		url:'/menu',
@@ -15,13 +14,29 @@ angular.module('FoodApp').config(['$stateProvider', '$urlRouterProvider',functio
 			}
 		},
 		resolve:{function  (Login, $window, $state, $location) {
-			console.log($window.localStorage.isLoggedIn)
-			if($window.localStorage.isLoggedIn === 'false'){
-				console.log('ami true')
+			if($window.localStorage.isLoggedIn === 'false' || !$window.localStorage.isLoggedIn ||$window.localStorage.token){
 				// $state.go('app');
 				$location.path('/');
 			}
 		}
 	}
-	});
+	})
+	.state('profile',{
+		url:'/profile',
+		templateUrl:'partials/profile.html',
+		controller:'profileCtrl'
+	})
+	.state('restaurant',{
+		url:'/restaurant/:id',
+		views:{
+			header:{
+				templateUrl:'partials/header.html',
+				controller: 'headerCtrl'
+			},
+			body:{
+				templateUrl:'restaurant/views/restaurant.html',
+				controller:'restaurantCtrl'
+			}
+		}
+	})
 }]);

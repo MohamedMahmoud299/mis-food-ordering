@@ -8,7 +8,7 @@ controller.logIn = function (req, res) {
     console.log(io.bullshit,'first log ');
     console.log (req.io.bullshit,'req');
   }
-  console.log('looged in');
+  // console.log('looged in');
   var socket = null;
     // io.on('connection', function(socket){
     //   console.log('a user connected');

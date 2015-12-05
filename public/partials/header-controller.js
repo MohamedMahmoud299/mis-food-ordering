@@ -12,5 +12,8 @@ angular.module('FoodApp')
 			// body...
 			// console.log(Login);
 			$state.go('menu')
-		}
+		};
+		$scope.openProfile = function () {
+			$state.go('profile');
+		};
 	}]);
